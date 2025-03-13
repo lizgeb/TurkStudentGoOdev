@@ -1,0 +1,25 @@
+--Belirli Kolonları Seçme 
+SELECT firstname,lastname,salary FROM employees 
+
+--Belirli Bir Departmana Ait Çalışanları Listeleme 
+--DEPARTMENTS VE EMPLOYEES İÇERİSİNDE BULUNAN DEPARTMENTSID SÜTUNLARINI EŞLEŞTİREREK VERİ ÇEKME İŞLEMİNİ GERÇEKLEŞTİRDİK
+SELECT employees.firstname,employees.lastname,departments.departmentname 
+FROM employees 
+JOIN departments ON employees.departmentid=departments.departmentid WHERE employees.departmentid=1
+
+-- DISTINCT Komutu ile Tekrarları Önleme 
+SELECT DISTINCT departmentid FROM employees;
+
+--Maaşa Göre Sıralama (büyükten küçüğe)
+--ORDER BY KOMUTU VERİLERİ KÜÇÜKTEN BÜYÜĞE SIRALARKEN DESC İLE BÜYÜKTEN KÜÇÜĞE SIRALAMA GERÇEKLEŞTİRDİK
+SELECT firstname,lastname,salary FROM employees ORDER BY salary DESC
+
+--Kolonları Birleştirme (Concatenation) 
+--POSTGRESQL İÇERİSİNDE + OPERATORÜ İLE SÜTUN TOPLAMA YAPILAMADIĞINDAN CONCAT İLE GERÇEKLEŞTİRDİK
+SELECT firstname || ' ' || lastname AS employeename 
+FROM employees;
+
+SELECT CONCAT(firstname, ' ', lastname) AS employeename 
+FROM employees;
+
+--
