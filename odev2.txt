@@ -1,0 +1,27 @@
+--SORU 1
+SELECT COUNT(*) FROM invoice WHERE(customer_id IS NULL AND invoice_date IS NULL AND billing_address IS NULL AND
+								  billing_city IS NULL AND billing_state IS NULL AND billing_country IS NULL AND
+								  billingpostal_code IS NULL AND total IS NULL )
+-- Total Rows:1
+
+--SORU 2
+SELECT 
+    invoice_id, 
+    total AS old_total, 
+    total * 2 AS new_total 
+FROM Invoice 
+ORDER BY new_total DESC;
+
+--SORU 3
+SELECT 
+    invoice_id, 
+    LEFT(billing_address, 3)||RIGHT(billing_address, 4) AS "new_address"
+FROM Invoice
+WHERE DATE_PART('year', invoice_date) = 2013 
+AND DATE_PART('month', invoice_date) = 8;
+
+
+
+
+
+								  
