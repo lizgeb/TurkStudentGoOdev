@@ -1,0 +1,28 @@
+--SORU 1
+SELECT SUM(total) FROM invoice WHERE invoice_date > '2009-01-01'; 
+
+--SORU 2
+SELECT t.name,
+t.album_id,
+t.composer,
+t.milliseconds,
+t.bytes, 
+p.name AS playlist_name 
+FROM track t
+INNER JOIN playlisttrack pt ON t.track_id = pt.track_id
+INNER JOIN playlist p ON pt.playlist_id = p.playlist_id;
+
+--SORU 3
+SELECT 
+t.name,
+t.album_id,
+t.composer,
+t.milliseconds,
+t.bytes, 
+ar.name AS artist_name,
+al.title AS album_name FROM track t
+INNER JOIN album al ON t.album_id = al.album_id
+INNER JOIN artist ar ON al.artist_id = ar.artist_id;
+
+
+
